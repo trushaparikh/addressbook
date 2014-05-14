@@ -1,0 +1,48 @@
+<div class="span3"></div>
+<div class="span6">
+  <div class="well">
+    <%= simple_form_for @addresslist,:html => {:class=>"form-horizontal"} do |f| %>
+      <%= f.error_notification %>
+
+      <div >
+        <div class="control-group">
+          <%= f.label :street1 %>
+          <div class="controls">
+            <%= f.input :street1 %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :street2 %>
+          <div class="controls">S
+            <%= f.input :street2 %></div>
+        </div>
+        <div class="control-group">
+          <%= f.label :city %>
+          <div class="controls">
+            <%= f.input :city %></div>
+        </div>
+        <div class="control-group">
+          <%= f.label :state %>
+          <div class="controls">
+            <%= f.input :state %></div>
+        </div>
+        <div class="control-group">
+          <%= f.label :country %>
+          <div class="controls">
+            <%= f.select :country_id,options_for_select(@countries.map{ |c| [c.name, c.id] }, selected_key = f.object.country_id) %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :phone %>
+          <div class="controls">
+            <%= f.input :phone %></div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit,:class => "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="span3"></div>

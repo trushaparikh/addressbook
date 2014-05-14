@@ -1,0 +1,32 @@
+<h1 class="text-center">Address Lists</h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Street1</th>
+      <th>Street2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addresslists.each do |addresslist| %>
+      <tr>
+        <td><%= addresslist.street1 %></td>
+        <td><%= addresslist.street2 %></td>
+        <td><%= addresslist.city %></td>
+        <td><%= addresslist.state %></td>
+        <td><%= addresslist.country.blank? ? "-" : addresslist.country.name  %></td>
+        <td><%= addresslist.phone %></td>
+        <td><%#= link_to 'Show', addresslist %></td>
+        <td><%= link_to 'Edit', edit_addresslist_path(addresslist) %></td>
+        <td><%= link_to 'Destroy', addresslist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
