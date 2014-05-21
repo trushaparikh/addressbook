@@ -30,7 +30,7 @@ class AddresslistsController < ApplicationController
     @user = current_user
     @addresslist = @user.addresslists.new(addresslist_params)
     
-    
+    @countries =Country.all
     respond_to do |format|
       
       if @addresslist.save
@@ -45,6 +45,7 @@ class AddresslistsController < ApplicationController
 
   
   def update
+    @countries =Country.all
     respond_to do |format|
       if @addresslist.update(addresslist_params)
         format.html { redirect_to addresslists_path, notice: 'Address was successfully updated.' }
